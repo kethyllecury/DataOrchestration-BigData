@@ -45,3 +45,8 @@ def etl_universities_flow(country: str = "Brazil"):
 
 if __name__ == "__main__":
     etl_universities_flow()
+    etl_universities_flow.serve(
+        name="etl-universities-schedule",
+        cron="0 8 * * *",  
+        tags=["etl", "universities"],
+    )
